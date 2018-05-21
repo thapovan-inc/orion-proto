@@ -14,3 +14,9 @@ For Swift
 cd scripts
 ./swift_gen_client.sh
 ```
+
+For NodeJS Static client
+```
+cd scripts
+./nodejs_gen_client.sh
+```
