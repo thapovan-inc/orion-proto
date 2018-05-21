@@ -42,7 +42,7 @@ The `Span` message/class actually denotes an event from the span's lifecycle. Me
 
 A span is uniquely identified by a combination of its `Trace` context and a `span_id` (UUID v4). Optionally, where available the `parent_span_id` can be mentioned to denote that the current span is a child of another span within the same trace context.
 
-Each span message is timestamped by the producer (the entity which emits the span message) and the `timestamp` is denoted an unsigned 64-bit integer representing the UTC time in microsecond. In platforms where microsecond precision is not available or not plausible due to performance constraints the microsecond part of the integer (last 3 digits) can be set to zero. This sets the minimum acceptable precision to be milliseconds.
+Each span message is timestamped by the producer (the entity which emits the span message) and the `timestamp` is denoted an unsigned 64-bit integer representing the UTC time in microsecond. In platforms where microsecond precision is not available or not plausible due to performance constraints the microsecond part of the integer (last 3 digits) can be set to zero. This sets the minimum acceptable precision to be milliseconds. `timestamp` must always be for **UTC**.
 
 The `event` field can store either a `StartEvent`, an `EndEvent` or a `LogEvent`. The structure of these event messages are explained in the following sections.
 
@@ -108,6 +108,14 @@ The receiving service is responsible to parse the `Trace` context and the parent
 
 # Metadata
 
+## Generic
+
+|Key|Value|
+|---|-----|
+|`service.os`| The OS on which the service runs |
+|`service.version`| Fully qualified service version |
+|`service.platform`| The language platform eg: `JVM`, `CLR`, `PHP`, `NODEJS` |
+
 ## HTTP Services
 
 |Key|Value|
@@ -116,6 +124,9 @@ The receiving service is responsible to parse the `Trace` context and the parent
 |`http.content_type`| MIME content type of the request|
 |`http.status_code`| Response status code |
 |`http.url`| Request URL |
+|`http.request.body` | JSON request body content. Must not exceed 64kb. Any other content type will not be processed by the tracer|
+|`http.response.body` | JSON response body content. Must not exceed 64kb. Any other content type will not be processed by the tracer|
+|`http.response.content_length` | Content length of response body |
 
 ## Mobile Application
 
