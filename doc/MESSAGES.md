@@ -115,6 +115,8 @@ The **receiving service** is responsible for:
 |`service.os`| The OS on which the service runs |
 |`service.version`| Fully qualified service version |
 |`service.platform`| The language platform eg: `JVM`, `CLR`, `PHP`, `NODEJS` |
+|`user.id`| User ID if any |
+|`user.email`| User email if present |
 
 ## HTTP Services
 
