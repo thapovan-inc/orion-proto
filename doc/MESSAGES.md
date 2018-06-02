@@ -108,6 +108,14 @@ The **receiving service** is responsible for:
 
 # Metadata
 
+## Signals
+
+**Key** - `orion.signal`
+|Allowed Value|Description|
+|-------------|-------------|
+| `START_TRACE`| Indicates that a trace has started. This must be included at the trace origin as the `StartEvent`'s metadata |
+| `END_TRACE`| Indicates that a trace has ended. This must be included at the trace origin as the `EndEvent`'s metadata |
+
 ## Generic
 
 |Key|Value|
