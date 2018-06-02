@@ -128,7 +128,11 @@ The **receiving service** is responsible for:
 |`http.url`| Request URL |
 |`http.request.body` | JSON request body content. Must not exceed 64kb. Any other content type will not be processed by the tracer|
 |`http.response.body` | JSON response body content. Must not exceed 64kb. Any other content type will not be processed by the tracer|
+|`http.request.ip`| Originating IP of the request |
+|`http.request.country`| Country of originating IP |
+|`http.request.headers`| Headers which are part of the request, including cookie header |
 |`http.response.content_length` | Content length of response body |
+|`http.response.headers`| Headers which are part of the response |
 
 ## Mobile Application
 
