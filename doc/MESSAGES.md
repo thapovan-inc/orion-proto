@@ -111,6 +111,7 @@ The **receiving service** is responsible for:
 ## Signals
 
 **Key** - `orion.signal`
+
 |Allowed Value|Description|
 |-------------|-------------|
 | `START_TRACE`| Indicates that a trace has started. This must be included at the trace origin as the `StartEvent`'s metadata |
